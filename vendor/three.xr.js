@@ -575,7 +575,7 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 
   /*
   MatrixMath provides helper functions for populating the various matrices involved with 3D graphics.
-  
+
   Many of the math methods were taken from the Google webvr polyfill:
   https://github.com/googlevr/webvr-polyfill/blob/master/src/util.js#L270
   */
@@ -889,7 +889,7 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 
   /*
   Quaternion wraps a vector of length 4 used as an orientation value.
-  
+
   Taken from https://github.com/googlevr/webvr-polyfill/blob/master/src/math-util.js which took it from Three.js
   */
   var Quaternion = function () {
@@ -1256,17 +1256,17 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
   exports.toRadian = toRadian;
   exports.equals = equals;
   /* Copyright (c) 2015, Brandon Jones, Colin MacKenzie IV.
-  
+
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
   in the Software without restriction, including without limitation the rights
   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
   copies of the Software, and to permit persons to whom the Software is
   furnished to do so, subject to the following conditions:
-  
+
   The above copyright notice and this permission notice shall be included in
   all copies or substantial portions of the Software.
-  
+
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -1347,7 +1347,7 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 
   /*
   XRAnchors provide per-frame coordinates which the Reality attempts to pin "in place".
-  In a virtual Reality these coordinates do not change. 
+  In a virtual Reality these coordinates do not change.
   In a Reality based on environment mapping sensors, the anchors may change pose on a per-frame bases as the system refines its map.
   */
   var XRAnchor = function () {
@@ -1441,7 +1441,7 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 
   /*
   Each XRDisplay represents a method of using a specific type of hardware to render AR or VR realities and layers.
-  
+
   This doesn't yet support a geospatial coordinate system
   */
   var XRDisplay = function (_EventHandlerBase) {
@@ -1477,7 +1477,7 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
     _createClass(XRDisplay, [{
       key: 'supportsSession',
       value: function supportsSession(parameters) {
-        // parameters: XRSessionCreateParametersInit 
+        // parameters: XRSessionCreateParametersInit
         // returns boolean
         return this._supportedCreationParameters(parameters);
       }
@@ -2218,7 +2218,7 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 
   exports.default = XRViewPose;
 
-  XRViewPose.SITTING_EYE_HEIGHT = 1.1; // meters
+  XRViewPose.SITTING_EYE_HEIGHT = 0; // meters
 
   /***/
 },
@@ -2249,7 +2249,7 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 
   /*
   Vector3 wraps a vector of length 3, often used as a position in 3D space.
-  
+
   Taken from https://github.com/googlevr/webvr-polyfill/blob/master/src/math-util.js which took it from Three.js
   */
   var Vector3 = function () {
@@ -2462,12 +2462,12 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
     }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
   }
 
-  /*	
+  /*
   ARKitWrapper talks	 to Apple ARKit, as exposed by Mozilla's test ARDemo app.
   It won't function inside a browser like Firefox.
-  
+
   ARKitWrapper is a singleton. Use ARKitWrapper.GetOrCreate() to get the instance, then add event listeners like so:
-  
+
   	if(ARKitWrapper.HasARKit()){
   		let arKitWrapper = ARKitWrapper.GetOrCreate()
   		arKitWrapper.addEventListener(ARKitWrapper.INIT_EVENT, ev => { console.log('ARKit initialized', ev) })
@@ -2479,7 +2479,7 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
   			light_intensity: boolean
   		})
   	}
-  
+
   */
 
   var ARKitWrapper = function (_EventHandlerBase) {
@@ -2866,13 +2866,13 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
       Sends a hitTest message to ARKit to get hit testing results
       x, y - screen coordinates normalized to 0..1 (0,0 is at top left and 1,1 is at bottom right)
       types - bit mask of hit testing types
-      
+
       Returns a Promise that resolves to a (possibly empty) array of hit test data:
       [
       	{
       		type: 1,							// A packed mask of types ARKitWrapper.HIT_TEST_TYPE_*
       		distance: 1.0216870307922363,		// The distance in meters from the camera to the detected anchor or feature point.
-      		world_transform:  [float x 16],		// The pose of the hit test result relative to the world coordinate system. 
+      		world_transform:  [float x 16],		// The pose of the hit test result relative to the world coordinate system.
       		local_transform:  [float x 16],		// The pose of the hit test result relative to the nearest anchor or feature point
       			// If the `type` is `HIT_TEST_TYPE_ESTIMATED_HORIZONTAL_PLANE`, `HIT_TEST_TYPE_EXISTING_PLANE`, or `HIT_TEST_TYPE_EXISTING_PLANE_USING_EXTENT` (2, 8, or 16) it will also have anchor data:
       		anchor_center: { x:float, y:float, z:float },
@@ -3816,17 +3816,17 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
    * @returns {vec3} a new 3D vector
    */
   /* Copyright (c) 2015, Brandon Jones, Colin MacKenzie IV.
-  
+
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
   in the Software without restriction, including without limitation the rights
   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
   copies of the Software, and to permit persons to whom the Software is
   furnished to do so, subject to the following conditions:
-  
+
   The above copyright notice and this permission notice shall be included in
   all copies or substantial portions of the Software.
-  
+
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -4713,7 +4713,7 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 
   /*
   XRPolyfill implements the window.XR functionality as a polyfill
-  
+
   Code below will check for window.XR and if it doesn't exist will install this polyfill,
   so you can safely include this script in any page.
   */
@@ -5581,14 +5581,14 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
   /*
   XRCoordinateSystem represents the origin of a 3D coordinate system positioned at a known frame of reference.
   The XRCoordinateSystem is a string from XRCoordinateSystem.TYPES:
-  
+
   These types are used by the app code when requesting a coordinate system from the session:
   - XRCoordinateSystem.HEAD_MODEL: origin is aligned with the pose of the head, as sensed by HMD or handset trackers
   - XRCoordinateSystem.EYE_LEVEL: origin is at a fixed distance above the ground
-  
+
   This is an internal type, specific to just this polyfill and not visible to the app code
   - XRCoordinateSystem.TRACKER: The origin of this coordinate system is at floor level at or below the origin of the HMD or handset provided tracking system
-  
+
   */
   var XRCoordinateSystem = function () {
     function XRCoordinateSystem(display, type) {
@@ -5770,7 +5770,7 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
         this._context.canvas.width = w;
       },
       get: function get() {
-        // not using this for now, on iOS it's not good.  
+        // not using this for now, on iOS it's not good.
         // var pr = window.devicePixelRatio || 1;
         //return this._context.canvas.clientWidth;
         return this._width;
@@ -5782,7 +5782,7 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
         this._context.canvas.height = h;
       },
       get: function get() {
-        // not using this for now, on iOS it's not good.  
+        // not using this for now, on iOS it's not good.
         // var pr = window.devicePixelRatio || 1;
         //return this._context.canvas.clientHeight;
         return this._height;
@@ -5897,7 +5897,7 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 
   /*
   FlatDisplay takes over a handset's full screen and presents a moving view into a Reality, as if it were a magic window.
-  
+
   If ARKit is present, it uses the ARKit updates to set the headModel pose.
   If ARCore is available on the VRDisplays, use that to pose the headModel. (TODO)
   Otherwise, use orientation events.
@@ -6300,17 +6300,17 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
    * @returns {mat4} a new 4x4 matrix
    */
   /* Copyright (c) 2015, Brandon Jones, Colin MacKenzie IV.
-  
+
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
   in the Software without restriction, including without limitation the rights
   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
   copies of the Software, and to permit persons to whom the Software is
   furnished to do so, subject to the following conditions:
-  
+
   The above copyright notice and this permission notice shall be included in
   all copies or substantial portions of the Software.
-  
+
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -8127,17 +8127,17 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
    * @returns {quat} a new quaternion
    */
   /* Copyright (c) 2015, Brandon Jones, Colin MacKenzie IV.
-  
+
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
   in the Software without restriction, including without limitation the rights
   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
   copies of the Software, and to permit persons to whom the Software is
   furnished to do so, subject to the following conditions:
-  
+
   The above copyright notice and this permission notice shall be included in
   all copies or substantial portions of the Software.
-  
+
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -8858,17 +8858,17 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
    * @returns {mat3} out
    */
   /* Copyright (c) 2015, Brandon Jones, Colin MacKenzie IV.
-  
+
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
   in the Software without restriction, including without limitation the rights
   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
   copies of the Software, and to permit persons to whom the Software is
   furnished to do so, subject to the following conditions:
-  
+
   The above copyright notice and this permission notice shall be included in
   all copies or substantial portions of the Software.
-  
+
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -9738,17 +9738,17 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
    * @returns {vec4} a new 4D vector
    */
   /* Copyright (c) 2015, Brandon Jones, Colin MacKenzie IV.
-  
+
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
   in the Software without restriction, including without limitation the rights
   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
   copies of the Software, and to permit persons to whom the Software is
   furnished to do so, subject to the following conditions:
-  
+
   The above copyright notice and this permission notice shall be included in
   all copies or substantial portions of the Software.
-  
+
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -10460,7 +10460,7 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 
       /*
       Called by a session to indicate that its baseLayer attribute has been set.
-      This is where the VRDisplay is used to create a session 
+      This is where the VRDisplay is used to create a session
       */
 
     }, {
@@ -10632,7 +10632,7 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 
   /*
   CameraReality displays the forward facing camera.
-  
+
   If this is running in the iOS ARKit wrapper app, the camera data will be displayed in a Metal layer below the WKWebKit layer.
   If this is running in the Google ARCore Chrome application, it will create a canvas element and use the ARCore provided camera data.
   If there is no ARKit or ARCore available, it will use WebRTC's MediaStream to render camera data into a canvas.
