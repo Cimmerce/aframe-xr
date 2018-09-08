@@ -4,7 +4,8 @@
 
 AFRAME.registerComponent('xranchor', {
   schema: {
-    positionOffset: { default: 'vec3' }
+    positionOffset: { type: 'vec3' },
+    rotationOffset: { type: 'vec3' }
   },
 
   init: function () {
@@ -34,19 +35,21 @@ AFRAME.registerComponent('xranchor', {
     );
     var positionVec3 = this.positionVec3.setFromMatrixPosition(anchorMatrix);
 
+    var positionOffset = this.data.positionOffset;
     this.el.setAttribute('position', {
-      x: positionVec3.x + this.data.positionOffset.x,
-      y: positionVec3.y + this.data.positionOffset.y,
-      z: positionVec3.z + this.data.positionOffset.z
+      x: positionVec3.x + positionOffset.x,
+      y: positionVec3.y + positionOffset.y,
+      z: positionVec3.z + positionOffset.z
     });
 
     var rotationQuat = this.rotationQuat.setFromRotationMatrix(anchorMatrix);
     var rotationVec3 = this.rotationVec3.applyQuaternion(rotationQuat);
 
+    var rotationOffset = this.data.rotationOffset;
     this.el.setAttribute('rotation', {
-      x: rotationVec3.x,
-      y: rotationVec3.y,
-      z: rotationVec3.z
+      x: rotationVec3.x + rotationOffset.x,
+      y: rotationVec3.y + rotationOffset.y,
+      z: rotationVec3.z + rotationOffset.z
     });
   }
 });
